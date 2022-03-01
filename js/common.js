@@ -376,3 +376,21 @@ $(function() {
 
 });
 
+function zoomerPath(e){
+	let zoom = $(e).data('zoom');
+	console.log(zoom);
+	if(zoom === false){
+
+		let viewbox = $(e).data('viewbox');
+		let scale = $(e).data('scale');
+		//$('#svg_plan').attr('style', 'transform:scale('+scale+'); transform-origin:0px 601px;');
+		$('#svg_plan').attr('style', 'transform:scale('+scale+'); transform-origin:-300 50;').attr('viewBox', viewbox);
+		$(e).data('zoom', true);
+		console.log(viewbox);
+		console.log(e);
+	} else {
+		$('#svg_plan').attr('style', 'transform:scale(1.0)').attr('viewBox', '0 0 1120 901');
+		//$('#svg_plan').attr('style', 'transform:scale(1.0); transform-origin:0 0;');
+		$(e).data('zoom', false);
+	}
+}
